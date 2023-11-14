@@ -1,0 +1,14 @@
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\obj\Debug\net7.0\LYA1_Sintaxis1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\obj\Debug\net7.0\LYA1_Sintaxis1.AssemblyInfoInputs.cache
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\obj\Debug\net7.0\LYA1_Sintaxis1.AssemblyInfo.cs
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\obj\Debug\net7.0\LYA1_Sintaxis1.csproj.CoreCompileInputs.cache
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\bin\Debug\net7.0\LYA1_Sintaxis1.exe
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\bin\Debug\net7.0\LYA1_Sintaxis1.deps.json
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\bin\Debug\net7.0\LYA1_Sintaxis1.runtimeconfig.json
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\bin\Debug\net7.0\LYA1_Sintaxis1.dll
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\bin\Debug\net7.0\LYA1_Sintaxis1.pdb
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\obj\Debug\net7.0\LYA1_Sintaxis1.dll
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\obj\Debug\net7.0\refint\LYA1_Sintaxis1.dll
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\obj\Debug\net7.0\LYA1_Sintaxis1.pdb
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\obj\Debug\net7.0\LYA1_Sintaxis1.genruntimeconfig.cache
+C:\Users\pedro\OneDrive\Escritorio\LYA1_Sintaxis1\obj\Debug\net7.0\ref\LYA1_Sintaxis1.dll

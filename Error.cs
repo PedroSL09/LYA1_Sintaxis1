@@ -7,6 +7,7 @@ namespace LYA1_Sintaxis1
 {
     public class Error : Exception
     {
+        private int linea;
         public Error(string mensaje, StreamWriter log) : base(mensaje)
         {
             log.WriteLine("Error "+mensaje);

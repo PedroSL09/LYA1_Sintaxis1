@@ -3,10 +3,10 @@
 #include <stdio>
 #include <math>
 
-char  a;
-int   a,b,c,d,radio;
-float x,y,z;
-char  w;
+char a;
+int a, b, c, d, radio, i;
+float x, y, z;
+char w;
 
 void main()
 {
@@ -15,11 +15,11 @@ void main()
     printf("\nRadio = ");
     scanf("%i");
 
-    radio = (3+5)*8-(10-4)/2;
+    radio = (3 + 5) * 8 - (10 - 4) / 2;
 
-    z = (a+b)*c;
+    z = (a + b) * c;
 
-    if ((3+5)*8 > z)
+    if ((3 + 5) * 8 > z)
     {
         printf("\nEs mayor");
     }
@@ -28,4 +28,16 @@ void main()
     {
         printf("\nRadio es par");
     }
+    else
+    {
+        printf("\nRadio es impar");
+    }
+
+    do{
+        z += 2;
+        printf("\n+1");
+    }while ( i < 20 );
+
+    z++;
+        
 }

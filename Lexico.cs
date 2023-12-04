@@ -212,6 +212,8 @@ namespace LYA1_Sintaxis1
                         case "for":
                         case "if":
                         case "else":
+                        case "printf":
+                        case "scanf":
                             setClasificacion(Tipos.reservada);
                             break;
 

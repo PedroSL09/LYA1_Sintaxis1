@@ -3,17 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-/*
-    Requerimiento 1: Printf -> printf(cadena(, Identificador)?);
-    Requerimiento 2: Scanf -> scanf(cadena,&Identificador);
-    Requerimiento 3: Agregar a la Asignacion +=, -=, *=. /=, %=
-                     Ejemplo:
-                     Identificador IncrementoTermino Expresion;
-                     Identificador IncrementoFactor Expresion;
-    Requerimiento 4: Agregar el else optativo al if
-    Requerimiento 5: Indicar el número de linea de los errores
-*/
-
 namespace LYA1_Sintaxis1
 {
     public class Lenguaje : Sintaxis
@@ -127,48 +116,70 @@ namespace LYA1_Sintaxis1
                 Asignacion();
             }
         }
-        //Printf -> printf(cadena);
+        //Requerimiento 1: Printf -> printf(cadena(, Identificador)?);
         private void Printf()
         {
             match("printf");
             match("(");
             match(Tipos.Cadena);
+            if (getContenido() == ",")
+            {
+                match(",");
+                match(Tipos.Identificador);
+            }
             match(")");
             match(";");
         }
-        //Scanf -> scanf(cadena);
+
+        //Requerimiento 2: Scanf -> scanf(cadena,&Identificador);
         private void Scanf()
         {
             match("scanf");
             match("(");
             match(Tipos.Cadena);
+            if (getContenido() == ",")
+            {
+                match(",");
+                match("&");
+                match(Tipos.Identificador);
+            }
             match(")");
             match(";");
         }
 
-        //Asignacion -> Identificador (++ | --) | (= Expresion);
+        //Asignacion -> Identificador = (Expresion | Numero);
         private void Asignacion()
         {
             match(Tipos.Identificador);
-            if (getClasificacion() == Tipos.OperadorTermino)
-            {
-                match(Tipos.OperadorTermino);
-            }
-            else if (getClasificacion() == Tipos.IncrementoTermino)
-            {
 
-            }
-            else if (getClasificacion() == Tipos.IncrementoFactor)
-            {
-
-            }
-            else
+            if (getContenido() == "=")
             {
                 match("=");
-                Expresion();
+                if (getClasificacion() == Tipos.Numero)
+                {
+                    match(Tipos.Numero);
+                }
+                else
+                {
+                    Expresion();
+                }
             }
+            else if (getContenido() == "+=" || getContenido() == "-=" || getContenido() == "*=" || getContenido() == "/=" || getContenido() == "%=")
+            {
+                match(getContenido());
+                if (getClasificacion() == Tipos.Numero)
+                {
+                    match(Tipos.Numero);
+                }
+                else
+                {
+                    Expresion();
+                }
+            }
+
             match(";");
         }
+
         //If -> if (Condicion) instruccion | bloqueInstrucciones 
         //      (else instruccion | bloqueInstrucciones)?
         private void If()
@@ -185,6 +196,22 @@ namespace LYA1_Sintaxis1
             {
                 Instruccion();
             }
+
+            //Requerimiento 4: Agregar el else optativo al if
+
+            if (getContenido() == "else")
+            {
+                match("else");
+                if (getContenido() == "{")
+                {
+                    bloqueInstrucciones();
+                }
+                else
+                {
+                    Instruccion();
+                }
+            }
+
         }
         //Condicion -> Expresion operadoRelacional Expresion
         private void Condicion()
@@ -196,23 +223,75 @@ namespace LYA1_Sintaxis1
         //While -> while(Condicion) bloque de instrucciones | instruccion
         private void While()
         {
+            match("while");
+            match("(");
+            Condicion();
+            match(")");
+            if (getContenido() == "{")
+            {
+                bloqueInstrucciones();
+            }
+            else
+            {
+                Instruccion();
+            }
 
         }
         //Do -> do bloque de instrucciones | intruccion while(Condicion)
         private void Do()
         {
+            match("do");
+            if (getContenido() == "{")
+            {
+                bloqueInstrucciones();
+            }
+            else
+            {
+                Instruccion();
+            }
+            match("while");
+            match("(");
+            Condicion();
+            match(")");
+            match(";");
 
         }
-        //For -> for(Asignacion Condicion; Incremento) Bloque de instruccones | Intruccion 
+        //For -> for(Asignacion;Condicion; Incremento) Bloque de instruccones | Intruccion 
         private void For()
         {
+            match("for");
+            match("(");
+            Asignacion();
+            match(";");
+            Condicion();
+            match(";");
+            Incremento();
+            if (getContenido() == "{")
+            {
+                bloqueInstrucciones();
+            }
+            else
+            {
+                Instruccion();
+            }
 
         }
-        //Incremento -> Identificador ++ | --
+        // Incremento -> Identificador (++ | --);
         private void Incremento()
         {
 
+            match(Tipos.Identificador);
+
+            if (getContenido() == "++" || getContenido() == "--")
+            {
+                match(getContenido());
+            }
+
+            match(";");
+
         }
+
+
         //Main      -> void main() bloqueInstrucciones
         private void Main()
         {

@@ -23,7 +23,7 @@ namespace LYA1_Sintaxis1
             }
             else
             {
-                throw new Error("Sintaxis: Se espera un "+espera,log);
+                throw new Error("de Sintaxis en linea " + ". Se espera un "+espera,log);
             }
         }
         public void match(Tipos espera)
